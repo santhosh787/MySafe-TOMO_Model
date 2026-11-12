@@ -1,0 +1,10 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Media upload is intentionally disabled in this MVP. Add a consent screen,
+    // file-size/type checks, retention policy and access rules before enabling it.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
